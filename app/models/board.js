@@ -3,7 +3,7 @@ import { Record, List } from 'immutable';
 const Board = new Record({
   id: null,
   name: null,
-  elements: new List(),
+  items: new List(),
 });
 
 export default Board;

@@ -1,4 +1,23 @@
 exports[`<Board /> renders correctly 1`] = `
 <div
-  className="box b-board" />
+  className="box b-board">
+  <div
+    className="b-board__item b-board__item--box"
+    style={
+      Object {
+        "background": "#ff0000",
+        "left": 200,
+        "top": 100,
+      }
+    } />
+  <div
+    className="b-board__item b-board__item--circle"
+    style={
+      Object {
+        "background": "#ffff00",
+        "left": 200,
+        "top": 300,
+      }
+    } />
+</div>
 `;

@@ -1,4 +1,15 @@
 .b-board {
   margin-top: 20px;
   height: 600px;
+  position: relative;
+
+  &__item {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+
+    &--circle {
+      border-radius: 50%;
+    }
+  }
 }
