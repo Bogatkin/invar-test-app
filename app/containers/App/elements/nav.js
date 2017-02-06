@@ -18,7 +18,7 @@ export class Nav extends React.Component { // eslint-disable-line react/prefer-s
               <Link
                 to={`/boards/${board.id}`}
                 className="nav-item is-tab is-hidden-mobile"
-                activeClassName="is_active"
+                activeClassName="is-active"
                 key={i}
               >
                 {board.name}
