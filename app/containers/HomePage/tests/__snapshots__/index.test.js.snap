@@ -1,11 +1,50 @@
 exports[`<Nav /> renders correctly 1`] = `
 <div
-  className="b-page">
-  <h1
-    className="title">
-    Test board 1
-  </h1>
+  className="columns">
   <div
-    className="box b-board" />
+    className="column is-2">
+    <aside
+      className="menu box b-menu">
+      <ul
+        className="menu-list">
+        <li>
+          <a
+            className="b-menu__link">
+            <span>
+              <i
+                className="b-menu__icon b-menu__icon--box" />
+            </span>
+            <span>
+              Box
+            </span>
+          </a>
+        </li>
+        <li>
+          <a
+            className="b-menu__link">
+            <span>
+              <i
+                className="b-menu__icon b-menu__icon--circle" />
+            </span>
+            <span>
+              Circle
+            </span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+  </div>
+  <div
+    className="column">
+    <div
+      className="b-page">
+      <h1
+        className="title">
+        Test board 1
+      </h1>
+      <div
+        className="box b-board" />
+    </div>
+  </div>
 </div>
 `;

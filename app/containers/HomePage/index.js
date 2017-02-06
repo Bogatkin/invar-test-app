@@ -13,6 +13,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
+
+import moveBoardItem from 'containers/App/actions/moveBoardItem';
+
+import Menu from 'components/menu';
 import Board from 'components/board';
 
 class HomePage extends React.Component {
@@ -20,7 +26,17 @@ class HomePage extends React.Component {
   static propTypes = {
     boards: React.PropTypes.object.isRequired,
     params: React.PropTypes.object.isRequired,
+    moveBoardItem: React.PropTypes.func.isRequired,
   };
+
+  constructor(props) {
+    super(props);
+
+    this.getCurrentBoard = ::this.getCurrentBoard;
+    this.changeItemPosition = ::this.changeItemPosition;
+    this.removeItem = ::this.removeItem;
+  }
+
 
   getCurrentBoard() {
     return this.props.boards.find((item) => (
@@ -28,24 +44,41 @@ class HomePage extends React.Component {
     ));
   }
 
+  changeItemPosition(board, item, position) {
+    this.props.moveBoardItem(board.id, item.id, position);
+  }
+
+  removeItem(item) {
+    return item;
+  }
+
   render() {
     const board = this.getCurrentBoard();
 
     return (
-      <div className="b-page">
-        <h1 className="title">{board.name}</h1>
-        <Board board={board} />
+      <div className="columns">
+        <div className="column is-2">
+          <Menu />
+        </div>
+        <div className="column">
+          <div className="b-page">
+            <h1 className="title">{board.name}</h1>
+            <Board board={board} changeItemPosition={this.changeItemPosition} removeItem={this.removeItem} />
+          </div>
+        </div>
       </div>
     );
   }
 }
+
+const HomePageDnd = DragDropContext(HTML5Backend)(HomePage);
 
 export default connect(
   (state) => ({
     boards: state.get('app').get('boards'),
   }),
   (dispatch) => bindActionCreators({
-    //
+    moveBoardItem,
   }, dispatch)
 
-)(HomePage);
+)(HomePageDnd);

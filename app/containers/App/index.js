@@ -12,11 +12,10 @@
  */
 
 import React from 'react';
-import Menu from 'components/menu';
 
 import Nav from './elements/nav';
 
-export default class App extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+class App extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 
   static propTypes = {
     children: React.PropTypes.node,
@@ -27,16 +26,11 @@ export default class App extends React.PureComponent { // eslint-disable-line re
       <div>
         <Nav />
         <div className="container is-fluid">
-          <div className="columns">
-            <div className="column is-2">
-              <Menu />
-            </div>
-            <div className="column">
-              {React.Children.toArray(this.props.children)}
-            </div>
-          </div>
+          {React.Children.toArray(this.props.children)}
         </div>
       </div>
     );
   }
 }
+
+export default App;

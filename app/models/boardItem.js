@@ -1,6 +1,7 @@
 import { Record } from 'immutable';
 
 const BoardItem = new Record({
+  id: null,
   type: 'box',
   color: '#000',
   top: 0,
