@@ -17,6 +17,7 @@ import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 
 import moveBoardItem from 'containers/App/actions/moveBoardItem';
+import addBoardItem from 'containers/App/actions/addBoardItem';
 
 import Menu from 'components/menu';
 import Board from 'components/board';
@@ -27,12 +28,14 @@ class HomePage extends React.Component {
     boards: React.PropTypes.object.isRequired,
     params: React.PropTypes.object.isRequired,
     moveBoardItem: React.PropTypes.func.isRequired,
+    addBoardItem: React.PropTypes.func.isRequired,
   };
 
   constructor(props) {
     super(props);
 
     this.getCurrentBoard = ::this.getCurrentBoard;
+    this.addItem = ::this.addItem;
     this.changeItemPosition = ::this.changeItemPosition;
     this.removeItem = ::this.removeItem;
   }
@@ -44,11 +47,16 @@ class HomePage extends React.Component {
     ));
   }
 
+  addItem(board, item) {
+    this.props.addBoardItem(board.id, item);
+  }
+
   changeItemPosition(board, item, position) {
     this.props.moveBoardItem(board.id, item.id, position);
   }
 
   removeItem(item) {
+    // я хотел сделать удаление при перемещении элемента за границу board, но потом решил что не стоит.
     return item;
   }
 
@@ -63,7 +71,12 @@ class HomePage extends React.Component {
         <div className="column">
           <div className="b-page">
             <h1 className="title">{board.name}</h1>
-            <Board board={board} changeItemPosition={this.changeItemPosition} removeItem={this.removeItem} />
+            <Board
+              board={board}
+              addItem={this.addItem}
+              changeItemPosition={this.changeItemPosition}
+              removeItem={this.removeItem}
+            />
           </div>
         </div>
       </div>
@@ -79,6 +92,7 @@ export default connect(
   }),
   (dispatch) => bindActionCreators({
     moveBoardItem,
+    addBoardItem,
   }, dispatch)
 
 )(HomePageDnd);

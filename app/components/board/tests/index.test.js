@@ -18,9 +18,19 @@ describe('<Board />', () => {
       ]),
     });
 
+    const OriginalBoard = Board.DecoratedComponent;
+    const identity = (el) => el;
+
+    // TODO: update test
     const tree = renderer.create(
-      <Board board={testBoard} />
+      <OriginalBoard
+        board={testBoard}
+        connectDropTarget={identity}
+        changeItemPosition={identity}
+        removeItem={identity}
+      />
     ).toJSON();
+
     expect(tree).toMatchSnapshot();
   });
 });

@@ -8,6 +8,7 @@
     overflow: hidden;
     display: flex!important; // ой как некрасиво то импортант в таком месте оставлять
     align-items: center;
+    cursor: move;
   }
 
   &__icon {

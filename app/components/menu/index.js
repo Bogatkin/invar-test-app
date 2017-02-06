@@ -1,21 +1,19 @@
 import React from 'react';
 
+import MenuItem from './item';
+
+const menuItems = [
+  { type: 'box', typeName: 'Box' },
+  { type: 'circle', typeName: 'Circle' },
+];
+
 export default function Menu() {
   return (
     <aside className="menu box b-menu">
       <ul className="menu-list">
-        <li>
-          <a className="b-menu__link">
-            <span><i className="b-menu__icon b-menu__icon--box" /></span>
-            <span>Box</span>
-          </a>
-        </li>
-        <li>
-          <a className="b-menu__link">
-            <span><i className="b-menu__icon b-menu__icon--circle" /></span>
-            <span>Circle</span>
-          </a>
-        </li>
+        {menuItems.map((item, i) => (
+          <MenuItem {...item} key={i} />
+        ))}
       </ul>
     </aside>
   );
