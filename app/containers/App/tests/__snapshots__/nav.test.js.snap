@@ -6,16 +6,16 @@ exports[`<Nav /> renders correctly 1`] = `
     <div
       className="nav-left">
       <a
-        className="nav-item is-tab is-hidden-mobile is-active">
-        Board 1
+        className="nav-item is-tab is-hidden-mobile"
+        onClick={[Function]}
+        style={Object {}}>
+        Test board 1
       </a>
       <a
-        className="nav-item is-tab is-hidden-mobile">
-        Board 2
-      </a>
-      <a
-        className="nav-item is-tab is-hidden-mobile">
-        Board 3
+        className="nav-item is-tab is-hidden-mobile"
+        onClick={[Function]}
+        style={Object {}}>
+        Test board 2
       </a>
     </div>
     <span

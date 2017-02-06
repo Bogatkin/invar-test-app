@@ -1,9 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Link } from 'react-router';
 
-export default class Nav extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+export class Nav extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   static propTypes = {
-    children: React.PropTypes.node,
+    boards: React.PropTypes.object.isRequired,
   };
 
   render() {
@@ -11,9 +14,16 @@ export default class Nav extends React.PureComponent { // eslint-disable-line re
       <nav className="nav has-shadow">
         <div className="container">
           <div className="nav-left">
-            <a className="nav-item is-tab is-hidden-mobile is-active">Board 1</a>
-            <a className="nav-item is-tab is-hidden-mobile">Board 2</a>
-            <a className="nav-item is-tab is-hidden-mobile">Board 3</a>
+            {this.props.boards.map((board, i) => (
+              <Link
+                to={`/boards/${board.id}`}
+                className="nav-item is-tab is-hidden-mobile"
+                activeClassName="is_active"
+                key={i}
+              >
+                {board.name}
+              </Link>
+            ))}
           </div>
           <span className="nav-toggle"><span /><span /><span /></span>
         </div>
@@ -22,3 +32,11 @@ export default class Nav extends React.PureComponent { // eslint-disable-line re
   }
 }
 
+export default connect(
+  (state) => ({
+    boards: state.get('app').get('boards'),
+  }),
+  (dispatch) => bindActionCreators({
+    //
+  }, dispatch)
+)(Nav);

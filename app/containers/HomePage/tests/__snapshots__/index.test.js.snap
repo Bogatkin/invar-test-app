@@ -1,9 +1,9 @@
-exports[`<HomePage /> renders correctly 1`] = `
+exports[`<Nav /> renders correctly 1`] = `
 <div
   className="b-page">
   <h1
     className="title">
-    Board name
+    Test board 1
   </h1>
   <div
     className="box b-board" />
