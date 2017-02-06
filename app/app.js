@@ -15,7 +15,8 @@ import { Provider } from 'react-redux';
 import { applyRouterMiddleware, Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { useScroll } from 'react-router-scroll';
-import 'sanitize.css/sanitize.css';
+// import 'sanitize.css/sanitize.css';
+import 'assets/scss/app.scss';
 
 // Import root app
 import App from 'containers/App';
