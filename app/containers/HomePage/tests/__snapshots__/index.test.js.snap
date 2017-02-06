@@ -1,0 +1,11 @@
+exports[`<HomePage /> renders correctly 1`] = `
+<div
+  className="b-page">
+  <h1
+    className="title">
+    Board name
+  </h1>
+  <div
+    className="box b-board" />
+</div>
+`;

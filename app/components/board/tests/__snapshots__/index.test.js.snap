@@ -1,0 +1,4 @@
+exports[`<Board /> renders correctly 1`] = `
+<div
+  className="box b-board" />
+`;

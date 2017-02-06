@@ -1,12 +1,12 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import HomePage from '../index';
+import Board from '../index';
 
-describe('<HomePage />', () => {
+describe('<Board />', () => {
   it('renders correctly', () => {
     const tree = renderer.create(
-      <HomePage />
+      <Board />
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

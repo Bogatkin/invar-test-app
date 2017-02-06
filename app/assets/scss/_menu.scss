@@ -1,0 +1,24 @@
+.b-menu {
+  margin-top: 20px;
+  @include tablet() {
+    margin-top: 72px;
+  }
+
+  &__link {
+    overflow: hidden;
+    display: flex!important; // ой как некрасиво то импортант в таком месте оставлять
+    align-items: center;
+  }
+
+  &__icon {
+    width: 2em;
+    height: 2em;
+    background: $red;
+    display: block;
+    margin-right: 10px;
+
+    &--circle {
+      border-radius: 50%;
+    }
+  }
+}

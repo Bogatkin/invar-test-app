@@ -1,12 +1,12 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import HomePage from '../index';
+import Nav from '../elements/nav';
 
-describe('<HomePage />', () => {
+describe('<Nav />', () => {
   it('renders correctly', () => {
     const tree = renderer.create(
-      <HomePage />
+      <Nav />
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

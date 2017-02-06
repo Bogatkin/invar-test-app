@@ -61,7 +61,7 @@ module.exports = (options) => ({
     }, {
       test: /\.scss$/,
       exclude: /node_modules/,
-      loaders: ['style-loader', 'css-loader', 'sass-loader']
+      loaders: ['style-loader', 'css-loader', 'sass-loader'],
     }],
   },
   plugins: options.plugins.concat([
